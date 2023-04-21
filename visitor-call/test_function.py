@@ -1,5 +1,4 @@
 import unittest
-import boto3
 import json
 
 from function import handler
