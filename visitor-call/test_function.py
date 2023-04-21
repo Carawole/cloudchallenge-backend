@@ -1,6 +1,6 @@
 import unittest
 
-target = __import__("function.py")
+target = __import__(function.py)
 handler = target.handler
 
 class TestLamba(unittest.TestCase):
