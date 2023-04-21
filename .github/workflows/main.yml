@@ -1,0 +1,50 @@
+name: Terraform Backend Workflow
+
+on: 
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  Test and Update:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@master
+
+    - name: Unit Test
+      run: python3 -m unittest visitor-call/test_function.py
+
+    - name: Configure AWS Credentials for Github Actions
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
+        aws-secret-access-key: ${{ secrets.AWS.SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
+    
+    - name: Setup Terraform CLI
+      uses: hashicorp/setup-terraform@v2
+
+    - name: Terraform Format
+      id: fmt
+      run: terraform fmt -check
+      continue-on-error: true
+
+    - name: Terraform Init
+      id: init
+      run: terraform init
+
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate -no-color
+
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color
+      continue-on-error: true
+    
+    - name: Terraform Apply
+      id: apply
+      run: terraform apply -auto-approve
+
+
