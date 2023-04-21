@@ -1,8 +1,6 @@
 import unittest
-import boto3
-import json
+from 
 
-from function import handler
 
 class TestLamba(unittest.TestCase):
     def test_handler(self):
