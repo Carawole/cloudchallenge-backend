@@ -35,14 +35,14 @@ resource "aws_dynamodb_table" "visitors" {
 data "archive_file" "lambda_visitor" {
   type = "zip"
 
-  source_dir  = "${path.module}/visitor-call"
-  output_path = "${path.module}/visitor-call.zip"
+  source_dir  = "${path.module}/visitor_call"
+  output_path = "${path.module}/visitor_call.zip"
 }
 
 resource "aws_s3_object" "lambda_visitor" {
   bucket = aws_s3_bucket.cazador.id
 
-  key = "visitor-call.zip"
+  key = "visitor_call.zip"
   source = data.archive_file.lambda_visitor.output_path
 
   etag = filemd5(data.archive_file.lambda_visitor.output_path)
