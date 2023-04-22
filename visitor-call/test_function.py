@@ -1,7 +1,9 @@
 import unittest
 import json
+import importlib
 
-from function import handler
+function = importlib.import_module("function")
+handler = function.handler
 
 class TestLamba(unittest.TestCase):
     def test_handler(self):
