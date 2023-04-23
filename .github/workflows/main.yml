@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@master
 
     - name: Unit Test
-      run: python3 -m unittest visitor-call/test_function.py
+      run: python3.11 -m unittest test_function.py
 
     - name: Configure AWS Credentials for Github Actions
       uses: aws-actions/configure-aws-credentials@v2
