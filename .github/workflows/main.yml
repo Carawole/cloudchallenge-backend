@@ -17,14 +17,14 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Add requirements
-      run: pip install -r requirements.txt
+    #- name: Add requirements
+    # run: pip install -r requirements.txt
 
     - name: List installed packages
       run: pip freeze
 
     - name: Unit Test
-      run: python3.11 -m unittest test_function
+      run: python3.11 -m unittest test_function.py
 
     - name: Configure AWS Credentials for Github Actions
       uses: aws-actions/configure-aws-credentials@v2
