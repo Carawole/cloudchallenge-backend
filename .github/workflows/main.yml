@@ -18,6 +18,7 @@ jobs:
         python-version: '3.11'
 
     - name: List installed packages
+      run: pip install -r requirements.txt
       run: pip freeze
 
     - name: Unit Test
