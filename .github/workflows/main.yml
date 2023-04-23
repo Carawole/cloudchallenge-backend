@@ -11,6 +11,11 @@ jobs:
     steps:
 
     - uses: actions/checkout@master
+    
+    - name: Setup Python
+      uses: actions/setup-python@4.5.0
+      with:
+        python-verion: '3.11'
 
     - name: Unit Test
       run: python3.11 -m unittest test_function.py
