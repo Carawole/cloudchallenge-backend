@@ -1,6 +1,7 @@
 import unittest
 import json
 
+from visitor_call import function
 from function import handler
 
 class test_lambda(unittest.TestCase):
