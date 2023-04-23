@@ -24,7 +24,7 @@ jobs:
       run: pip freeze
 
     - name: Unit Test
-      run: python3.11 -m unittest test_function.py
+      run: python3.11 -m unittest test_function
 
     - name: Configure AWS Credentials for Github Actions
       uses: aws-actions/configure-aws-credentials@v2
