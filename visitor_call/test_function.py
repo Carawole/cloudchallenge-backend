@@ -1,7 +1,7 @@
 import unittest
 import json
 from visitor_call.function import handler
-#import boto3
+import boto3
 #from contextlib import contextmanager
 
 
