@@ -17,7 +17,7 @@ class test_lambda(unittest.TestCase):
     def test_get_from_dynamo(self):
         from visitor_call import function
         handler = function.handler
-        dynamo = boto3.resource('dynamodb')
+        dynamo = boto3.resource('dynamodb', region_name='us-east-1')
         table_name = 'VisitorCount'
         table = dynamo.create_table(TableName=table_name,
             KeySchema=[{'AttributeName': 'ClicksOnResume','KeyType': 'HASH'}],
