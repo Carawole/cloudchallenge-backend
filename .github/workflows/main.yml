@@ -27,10 +27,7 @@ jobs:
 
     - name: List installed packages
       run: pip freeze
-
-    - name: Unit Test
-      run: python3.11 -m unittest visitor_call.test_function
-
+    
     - name: Configure AWS Credentials for Github Actions
       uses: aws-actions/configure-aws-credentials@v2
       with:
@@ -38,6 +35,9 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS.SECRET_ACCESS_KEY }}
         aws-region: us-east-1
     
+    - name: Unit Test
+      run: python3.11 -m unittest visitor_call.test_function
+
     - name: Setup Terraform CLI
       uses: hashicorp/setup-terraform@v2
 
